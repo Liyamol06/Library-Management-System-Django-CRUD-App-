@@ -16,10 +16,16 @@ A web-based Library Management System built using Django that allows librarians 
 - SQLite3 (default database)
 
 ## Installation
-1. Clone the repository: https://github.com/Liyamol06/Library-Management-System-Django-CRUD-App-.git
-2. Navigate to the project folder: cd "Library-Management-System-Django-CRUD-App-"
-3. Create a virtual environment: python -m venv venv
-4. Activate the virtual environment:
+1. Clone the repository: [GitHub Repository](https://github.com/Liyamol06/Library-Management-System-Django-CRUD-App-.git)
+2. Navigate to the project folder:
+  ```
+   cd Library-Management-System-Django-CRUD-App-
+  ```
+3. Create a virtual environment: 
+  ```
+  python -m venv venv 
+  ```
+4. Activate the virtual env
 - Windows:
   ```
   venv\Scripts\activate
@@ -28,13 +34,27 @@ A web-based Library Management System built using Django that allows librarians 
   ```
   source venv/bin/activate
   ```
-  
-5. Install dependencies: pip install -r requirements.txt
-6. Navigate to project: cd library_management
-7. Apply migrations: python manage.py migrate
-8. Create a superuser (librarian): python manage.py createsuperuser
-9. Run the development server: python manage.py runserver
-10. Open in browser: http://127.0.0.1:8000/
+5. Install dependencies: 
+  ```
+  pip install -r requirements.txt
+  ```
+7. Navigate to project:  
+  ```
+  cd library_management
+  ```
+7. Apply migrations: 
+  ```
+  python manage.py migrate
+  ```
+8. Create a superuser (librarian):  
+  ```
+  python manage.py createsuperuser
+  ```
+9. Run the development server:  
+  ```
+  python manage.py runserver
+  ```
+10. Open in browser:  http://127.0.0.1:8000/
 
 ## Usage
 - Log in with your librarian credentials.
