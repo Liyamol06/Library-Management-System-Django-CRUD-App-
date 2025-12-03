@@ -262,14 +262,16 @@ def delete_book(request, pk):
     messages.success(request, "Deleted Successfully")
     return redirect("listBook")
 
-# Checking the user is a librarian
+# Function to check user is librarian
 def is_librarian(user):
-    if user.is_authenticated and user.groups.filter(name='Librarian').exists():
+    if user.is_authenticated and (
+        user.is_superuser or user.groups.filter(name='Librarian').exists()):
         return True
     elif not user.is_authenticated:
         return False  # triggers redirect to login
     else:
         raise PermissionDenied
+
 
 # Borrower CRUD Operations
 @user_passes_test(is_librarian, login_url='/login/')
