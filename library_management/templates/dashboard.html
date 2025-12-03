@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block menu %}
+    {% include 'menu.html' %}
+{% endblock menu %}
+ 
+{% block message %}
+    {% include 'message.html' %}
+{% endblock message %}
+
+{% block content %}
+
+    <h1>Hello {{ user }}, Welcome to Central Library</h1>
+
+    <div class="container">
+        <div class="box">
+                Total Books: {{ total_books }}
+        </div>
+        <div class="box">Total Members: {{ total_members }}
+        </div>
+        <div class="box">
+                Total Books Borrowed: {{ total_books_borrowed }}
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="box">
+            <ul>Overdue({{over_due_count}})
+                {% for records in over_due %}
+                    <li><a href="{%url 'returnBook' records.id %}">{{ records }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock content %}
+

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block message %}
+    {% include 'message.html' %}
+{% endblock message %}
+
+{% block content %}
+
+    <h1>Librarian Login Page</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body class="{{ request.session.theme|default:'light' }}">
+    {% block menu %}{% endblock menu %}
+    {% block message %}{% endblock message %}
+    {% block content %}{% endblock content %}
+</body>
+</html>

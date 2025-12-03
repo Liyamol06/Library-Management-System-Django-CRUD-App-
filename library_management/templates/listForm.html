@@ -1,0 +1,82 @@
+{% extends 'createListBase.html' %}
+
+{% block menu %}
+    {% include 'menu.html' %}
+        {% if model == 'book' %}
+            <li><a href="{% url 'createBook' %}">Add Book</a></li>            
+        {% elif model == 'member' %}
+            <li><a href="{% url 'createMember' %}">Add Member</a></li>
+        {% elif model == 'borrower' %}
+            <li><a href="{% url 'borrowBook' %}">Borrow Book</a></li>
+        {% elif model == 'category' %}
+            <li><a href="{% url 'createCategory' %}">Add Book Category</a></li>
+        {% else %}
+            <li><a href="{% url 'createAuthor' %}">Add Book Author</a></li>
+        {% endif %}
+{% endblock menu %}
+
+{% block content %}
+
+    <h1>{{ title }}</h1>
+
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        <span>Page {{ page_obj.number }} of {{ paginator.num_pages }}</span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Next</a>
+        {% endif %}
+    </div>
+
+    {% if model == 'book' %}
+        <form method="GET" action="" class="search-form">
+            <input type="text" name="query" placeholder="Search..." value="{{ request.GET.query }}">
+            <button type="submit">Search</button>
+        </form>
+    {% endif %}
+
+    <table>
+        <tbody>
+            {% for obj in page_obj %}
+            <tr>
+                {% if model == 'book' %}
+                    <td>{{ obj.title }}</td>
+                    <td>{{ obj.author }}</td>
+                    <td>{{ obj.category }}</td>
+                    <td>{{ obj.stock }}</td>
+                {% elif model == 'member' %}
+                    <td>{{ obj.member_number }}</td>
+                    <td>{{ obj.name }}</td>
+                    <td>{{ obj.email }}</td>
+                    <td>{{ obj.phone }}</td>
+                {% elif model == 'borrower' %}
+                    {% if obj.is_overdue %}
+                        <tr style="color: red;">
+                    {% else %}
+                        <tr>
+                    {% endif %}
+
+                    <td>{{ obj.book }}</td>
+                    <td>{{ obj.member }}</td>
+                    <td>{{ obj.borrow_date }}</td>
+                    <td>{{ obj.due_date }}</td>
+                    {% if not obj.returned %}
+                        <td><a href="{% url 'returnBook' obj.id %}">Return Book</a></td>
+                    {% else %}
+                        <td>Book Returned</td>
+                    {% endif %}
+                {% else %}
+                    <td>{{ obj }}</td>
+                {% endif %}
+
+                {% if dynamic_update_url %}<td><a href="{% url dynamic_update_url obj.id %}">Edit</a></td>{% endif %}
+                {% if dynamic_delete_url %}<td><a href="{% url dynamic_delete_url obj.id %}">Delete</a></td>{% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}

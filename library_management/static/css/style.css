@@ -1,0 +1,114 @@
+/* --------------------- Body Themes --------------------- */
+body.light {
+    background-color: #ffffff; /* page background */
+    color: #000000;            /* default text color */
+    transition: all 0.3s ease; /* smooth theme switch */
+}
+
+body.dark {
+    background-color: #121212; /* page background */
+    color: #ffffff;            /* default text color */
+    transition: all 0.3s ease;
+}
+
+/* --------------------- Alerts --------------------- */
+.alert {
+    padding: 12px 18px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* Light theme alerts */
+body.light .alert.success {
+    background-color: #28a745;
+}
+
+body.light .alert.error {
+    background-color: #dc3545;
+}
+
+/* Dark theme alerts */
+body.dark .alert.success {
+    background-color: #1e7e34;
+}
+
+body.dark .alert.error {
+    background-color: #b71c1c;
+}
+
+/* --------------------- Container --------------------- */
+.container {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    height: 250px;
+    background: transparent;  
+    padding: 10px;
+}
+
+/* --------------------- Box --------------------- */
+.box {
+    flex: 1;         
+    padding: 20px;
+    text-align: center;
+    font-size: xx-large;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+/* Box colors based on theme */
+body.light .box {
+    background: #f0f0f0;  /* light gray */
+    color: #000000;
+    border-color: #ccc;
+}
+
+body.dark .box {
+    background: #1e1e1e;  /* darker gray for contrast */
+    color: #ffffff;
+    border-color: #555;
+}
+
+/* --------------------- Links and Text --------------------- */
+body.light a {
+    color: #1a0dab;
+    transition: all 0.3s ease;
+}
+
+body.dark a {
+    color: #63a4ff;
+    transition: all 0.3s ease;
+}
+
+/* --------------------- Optional: Buttons --------------------- */
+button, input[type="submit"] {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+body.light button, body.light input[type="submit"] {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+body.dark button, body.dark input[type="submit"] {
+    background-color: #0056b3;
+    color: #ffffff;
+}
+
+.search-input {
+    padding: 8px;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+

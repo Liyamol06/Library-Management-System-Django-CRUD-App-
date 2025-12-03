@@ -1,0 +1,29 @@
+# IDE folders
+.vscode/
+
+# Virtual environments
+venv/
+LMS/
+env/
+.venv/
+
+# sqlite files
+db.sqlite3
+*.sqlite3
+
+# __pycache__
+__pycache__/
+*.pyc
+*.pyo
+
+# migrations 
+**/migrations/*.pyc
+**/migrations/*.pyo
+**/migrations/__pycache__/
+
+# Django static and media
+/staticfiles/
+/media/
+
+# Backup files
+*~
